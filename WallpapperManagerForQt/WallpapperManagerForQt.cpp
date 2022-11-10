@@ -2,21 +2,111 @@
 //
 
 #include <iostream>
-
-int main()
+#include <fstream>
+#include <windows.h>
+#include <string>
+#include <vector>
+#include<io.h>
+using namespace std;
+/*Ctrl+K+C批量注释 Ctrl+K+U批量解除注释*/
+void savePath(string path)
 {
-    std::cout << "Hello zy!\n";
-    std::cout << "helloworld new \n";
+	ifstream finforTxt;
+	string address = "D:\\SoftwareProjects\\WallpapperManager\\";
+	string fileName = "TestSave.txt";
+	string addFileName = address + fileName;//保证这个使用方法没问题
+	ofstream fout;
+	fout.open(addFileName, ios_base::app);
+	if (fout.is_open())
+	{
+		fout << path << endl;
+	}
+	else
+	{
+		cout << "Go Fuck Yourself 以及打开TestSave.txt失败";
+	}
+	//写文件的时候的一些问题
 
 }
 
-// 运行程序: Ctrl + F5 或调试 >“开始执行(不调试)”菜单
-// 调试程序: F5 或调试 >“开始调试”菜单
+void get_need_file(string path, vector<string>& file, string ext)
+{
+	intptr_t file_handle = 0;//与计算机系统有关的数据类型，专门用来存放指针的地址
+	//用来表示文件句柄；在计算机系统中每一个文件都有一个唯一的编号（相当于我们每一个人都有一个唯一的身份证号码），不同的文件具有不同的句柄，依据这一个句柄计算机系统就能锁定其对应的那个唯一的文件。
+	//因为文件句柄就是一个指向指针的指针，亦即指针的地址，因此我们就将其设定为intptr_t类型。
+	struct _finddata_t file_info;//用来储存计算机系统中不同文件的各类信息
+	string temp;//储存临时生成的文件路径
+	if ((file_handle = _findfirst(temp.assign(path).append("/*" + ext).c_str(), &file_info)) != -1)
+		//temp.assign(path)表示赋值给字符串temp .c_str()将temp转化为C语言格式
+		//_findfirst在当前路径下，找到与第一个参数（在这里也就是转换好的C语言格式字符串）相匹配的第一个文件；如果能找到这个文件，那么其就返回该文件的句柄，
+		//并将该文件的信息放入file_info；如果找不到这个文件，那么该函数就返回-1。
+	{
+		cout << "tempAddr:"<<temp << endl;
+		do
+		{
+			cout << "tempAddrInDo:" << temp << endl;
+			file.push_back(temp.assign(path).append("/").append(file_info.name));
+			savePath(temp.assign(path).append("/").append(file_info.name));//存储文件名
+		} while (_findnext(file_handle, &file_info) == 0);
+		_findclose(file_handle);
 
-// 入门使用技巧: 
-//   1. 使用解决方案资源管理器窗口添加/管理文件
-//   2. 使用团队资源管理器窗口连接到源代码管理
-//   3. 使用输出窗口查看生成输出和其他消息
-//   4. 使用错误列表窗口查看错误
-//   5. 转到“项目”>“添加新项”以创建新的代码文件，或转到“项目”>“添加现有项”以将现有代码文件添加到项目
-//   6. 将来，若要再次打开此项目，请转到“文件”>“打开”>“项目”并选择 .sln 文件
+	}
+}
+int main()
+{
+	ifstream finforTxt;
+	string address = R"(D:\SoftwareProjects\WallpapperManager\)";//use R() to avoid escape character
+	string fileName = "Test.txt";
+	string picAddress = R"(pics\)";
+	string addrpics = address + picAddress;//保证这个使用方法没问题
+	cout << addrpics << endl;
+
+	vector<string> my_files;
+	string need_extension = ".jpg";
+	get_need_file(addrpics, my_files, need_extension);
+	for (int i = 0; i < my_files.size(); i++)
+	{
+		cout << "File" << i + 1 << "is:" << endl;
+		cout << my_files[i] << endl;
+	}
+	if (my_files.size() == 0)
+	{
+		cout << "No file has been found!" << endl;
+	}
+	else
+	{
+		cout << endl << "FInd" << my_files.size() << "file(s)." << endl;
+	}
+	return 0;
+}
+
+//存储得到的文件的路径
+
+
+
+
+void readTxt()
+{
+	ifstream finforTxt;
+	string address = "D:\\SoftwareProjects\\WallpapperManager\\";
+	string fileName = "Test.txt";
+	string picAddress = "pics\\pics";
+	string addFileName = address + fileName;//保证这个使用方法没问题
+	cout << addFileName << endl;
+	finforTxt.open(addFileName, ios_base::binary);
+	if (finforTxt.is_open())
+	{
+		char ch;
+	finforTxt >> ch;//读取一个字符
+	cout << "ch:" << ch << endl;
+	char buf[80];
+	finforTxt >> buf;//读取一个单词
+	finforTxt >> buf;
+	cout << "buf:" << buf << endl;
+	finforTxt.getline(buf, 80);//读取一行
+	string line;
+	getline(finforTxt, line);//要include string
+	cout << "ch:" << line << endl;
+	}
+
+}
