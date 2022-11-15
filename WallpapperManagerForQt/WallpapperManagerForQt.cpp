@@ -12,7 +12,9 @@ using namespace std;
 void savePath(string path)
 {
 	ifstream finforTxt;
-	string address = "D:\\SoftwareProjects\\WallpapperManager\\";
+	//string address = "D:\\SoftwareProjects\\WallpapperManager\\";
+	//string address = "C:\\Users\user\\Desktop\\newproject\\WallpapperManager\\";
+	string address = "..\\";
 	string fileName = "TestSave.txt";
 	string addFileName = address + fileName;//保证这个使用方法没问题
 	ofstream fout;
@@ -55,7 +57,8 @@ void get_need_file(string path, vector<string>& file, string ext)
 int main()
 {
 	ifstream finforTxt;
-	string address = R"(D:\SoftwareProjects\WallpapperManager\)";//use R() to avoid escape character
+	//string address = R"(C:\Users\user\Desktop\newproject\WallpapperManager\)";//use R() to avoid escape character
+	string address = R"(..\)";
 	string fileName = "Test.txt";
 	string picAddress = R"(pics\)";
 	string addrpics = address + picAddress;//保证这个使用方法没问题
@@ -88,7 +91,8 @@ int main()
 void readTxt()
 {
 	ifstream finforTxt;
-	string address = "D:\\SoftwareProjects\\WallpapperManager\\";
+	//string address = "C:\\Users\user\\Desktop\\newproject\\WallpapperManager\\";
+	string address = "..\\";
 	string fileName = "Test.txt";
 	string picAddress = "pics\\pics";
 	string addFileName = address + fileName;//保证这个使用方法没问题

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 D:\SoftwareProjects\WallpapperManager\pics\/pics (1).jpg
 D:\SoftwareProjects\WallpapperManager\pics\/pics (2).jpg
 D:\SoftwareProjects\WallpapperManager\pics\/pics (3).jpg
@@ -10,3 +11,16 @@ D:\SoftwareProjects\WallpapperManager\pics\/pics (3).jpg
 D:\SoftwareProjects\WallpapperManager\pics\/pics (4).jpg
 D:\SoftwareProjects\WallpapperManager\pics\/pics (5).jpg
 D:\SoftwareProjects\WallpapperManager\pics\/pics (6).jpg
+=======
+..\pics/pics (1).jpg
+..\pics/pics (2).jpg
+..\pics/pics (3).jpg
+..\pics/pics (4).jpg
+..\pics/pics (5).jpg
+..\pics/pics (6).jpg..\pics\/pics (1).jpg
+..\pics\/pics (2).jpg
+..\pics\/pics (3).jpg
+..\pics\/pics (4).jpg
+..\pics\/pics (5).jpg
+..\pics\/pics (6).jpg
+>>>>>>> 2cf1da20427d0b894f68f13f0423c555b74f9909
