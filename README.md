@@ -23,6 +23,21 @@
 1.并且图片可以在GUI内进行演示。（需要有缩略图、缩略图概览的放大和缩小）
 2.通过选择不同的标签，展示不同的图片。
 3.分组栏：选中之后展示不同组的图片。
+# 更新说明
 ## Nov.16 2022
 删除了.vs .Debug .x64 .TestSave.txt在库中的跟踪
 Delating tracking of .vs and .Debug .x64 and .TestSave.txt in the repository
+## QT安装说明 具体见下方博文
+https://mingshiqiang.blog.csdn.net/article/details/108015209
+
+QT 5.15.2版本
+MSVC 2019 32-bit 
+MSVC 2019 64-bit 
+博文中缺少
+Debugging Tools for Windows 
+按照博文中在线下载器下载QT会有这么个东西 我感觉有用我就选上了
+vsaddin选择 msvc2019-2.5.1.vsix
+按照教程安装好之后 可能会出现“未能正确加载 qtVsToolsPackage”问题 见以下链接进行修改
+https://zhuanlan.zhihu.com/p/574513876
+修改完成后打开VS窗口（继续但无需代码亦可）工具栏-扩展-管理扩展-已安装-Qt Visual Studio Tools-卸载 
+之后重新安装
