@@ -6,7 +6,8 @@
 #include <windows.h>
 #include <string>
 #include <vector>
-#include<io.h>
+#include <io.h>
+#include <math.h>
 using namespace std;
 /*Ctrl+K+C批量注释 Ctrl+K+U批量解除注释*/
 void savePath(string path)
