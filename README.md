@@ -23,3 +23,6 @@
 1.并且图片可以在GUI内进行演示。（需要有缩略图、缩略图概览的放大和缩小）
 2.通过选择不同的标签，展示不同的图片。
 3.分组栏：选中之后展示不同组的图片。
+## Nov.16 2022
+删除了.vs .Debug .x64 .TestSave.txt在库中的跟踪
+Delating tracking of .vs and .Debug .x64 and .TestSave.txt in the repository

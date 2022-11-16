@@ -1,6 +1,8 @@
 # 注释 被Git忽略
-
-.vs/ 	#忽略所有.vs的文件
-Debug/    #忽略所有Debug目录下的文件
-TestSave.txt # 忽略
-x64
+#忽略所有.vs的文件
+    #忽略所有Debug目录下的文件 
+# 忽略
+/.vs
+/Debug
+/TestSave.txt
+/x64
