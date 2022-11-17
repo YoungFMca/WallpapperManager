@@ -41,3 +41,12 @@ vsaddin选择 msvc2019-2.5.1.vsix
 https://zhuanlan.zhihu.com/p/574513876
 修改完成后打开VS窗口（继续但无需代码亦可）工具栏-扩展-管理扩展-已安装-Qt Visual Studio Tools-卸载 
 之后重新安装
+## Nov.17 2022
+1.将查找文件、存储文件、显示文件分别模块化了一下。主函数里加了交互，删除了一些之前尝试失败（脱了裤子放屁）的函数。
+注：相对路径可以使用。但是在使用以ofstream作为返回值的函数的时候发现相对路径的当前文件目录是最外层的WallpapperManager目录。
+但是在我的测试里。用..\\的相对路径创建新的文件，文件是在WallpapperManager上层创建的，以及.\的话，新建的文件就是在WallpapperManager内，
+但是在第119行到121的测试代码里，如果用..\\pics是打开文件失败。
+以上问题发生在我在openTxt2out函数里的fout.open(path,ios_base::trunc);的path前还加了..//，而在get_need_file()里并没有加，因此之前txt的路径读取不了，而pics的读取得了。
+我是傻逼卧槽。
+
+#### 下一个目标是在txt中加入标签
